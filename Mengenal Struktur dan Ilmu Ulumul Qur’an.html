@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mengenal Struktur dan Ilmu Ulumul Qur’an</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f6f4;--surface:#ffffff;--ink:#12303a;--muted:#4d6670;--line:#cfdcd8;
+  --accent:#1c6b5a;--accent-ink:#ffffff;--gold:#a9761a;--tint:#e1eeea;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --arab:"Amiri","Traditional Arabic","Scheherazade New",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0d1d24;--surface:#142a33;--ink:#e6f0ee;--muted:#9ab3ba;--line:#26414b;--accent:#5fc2a8;--accent-ink:#0d1d24;--gold:#e0b25a;--tint:#183640}
+}
+:root[data-theme="dark"]{--bg:#0d1d24;--surface:#142a33;--ink:#e6f0ee;--muted:#9ab3ba;--line:#26414b;--accent:#5fc2a8;--accent-ink:#0d1d24;--gold:#e0b25a;--tint:#183640}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:17px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:6px 18px;flex-wrap:wrap;padding-top:10px;padding-bottom:10px;font-size:15px}
+nav a{text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--accent)}
+.hero{padding:64px 0 48px;border-bottom:1px solid var(--line)}
+.hero .ar{font-family:var(--arab);font-size:clamp(64px,16vw,132px);line-height:1.25;margin:0;color:var(--accent);direction:rtl;text-align:right}
+.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:12px 0 16px;max-width:20ch;font-weight:700}
+.hero p{max-width:60ch;color:var(--muted);margin:0 0 22px}
+.id{margin:0 0 22px;padding:12px 16px;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px;background:var(--surface);display:inline-block;color:var(--ink)}
+.id b{display:block;font-size:18px}
+.id span{color:var(--muted);font-size:15px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:11px 20px;border-radius:6px;text-decoration:none;font-weight:600}
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(24px,4vw,32px);line-height:1.2;margin:0 0 12px}
+h3{font-size:19px;margin:0 0 6px}
+.lead{max-width:64ch;color:var(--muted);margin:0 0 24px}
+.ar-inline{font-family:var(--arab);font-size:1.25em}
+.def{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.def div{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:-0px -1px -1px 0}
+.def dt{font-size:14px;color:var(--muted);margin:0}
+.def dd{margin:2px 0 0;font-weight:700;font-size:20px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:28px}
+.tablewrap{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--surface)}
+th,td{text-align:left;padding:10px 14px;border:1px solid var(--line);vertical-align:top;font-size:15.5px}
+th{background:var(--tint)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tabs button{font:inherit;font-size:15px;padding:8px 14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px;padding:20px 22px}
+.panel[hidden]{display:none}
+.panel ul{margin:10px 0 0;padding-left:20px}
+.panel li{margin:4px 0}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--accent)}
+.tl li{position:relative;padding:0 0 22px 8px}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+.tl b{display:block}
+.tl span{color:var(--muted);font-size:15.5px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14.5px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav aria-label="Navigasi utama"><div class="wrap">
+  <a href="#pengertian">Pengertian</a><a href="#struktur">Struktur Al-Qur’an</a><a href="#cabang">Cabang Ilmu</a><a href="#sejarah">Sejarah</a><a href="#kitab">Kitab Rujukan</a><a href="#tanya">Tanya Jawab</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <p class="ar" lang="ar">عُلُومُ الْقُرْآنِ</p>
+  <h1>Mengenal Struktur dan Ilmu Ulumul Qur’an</h1>
+  <p>Panduan ringkas untuk memahami bagaimana Al-Qur’an tersusun, dan cabang-cabang ilmu yang dipakai untuk mempelajarinya dengan benar.</p>
+  <div class="id"><b>Halwa Samhana</b><span>Kelas B · NIM 21106252610049</span></div><br>
+  <a class="btn" href="#pengertian">Mulai belajar</a>
+</div></header>
+
+<main>
+<section id="pengertian"><div class="wrap">
+  <h2>Apa itu Ulumul Qur’an?</h2>
+  <p class="lead"><i>Ulumul Qur’an</i> (<span class="ar-inline" lang="ar">علوم القرآن</span>) secara harfiah berarti “ilmu-ilmu Al-Qur’an”. Ia adalah kumpulan pembahasan yang berkaitan dengan Al-Qur’an: dari turunnya wahyu, pengumpulan dan penulisannya, cara bacanya, sampai kaidah memahami maknanya.</p>
+  <div class="cols">
+    <div><h3>Tujuan</h3><p>Menjaga pemahaman Al-Qur’an dari kekeliruan, mengenal keotentikannya, dan membantu penafsiran yang sesuai konteks dan kaidah bahasa.</p></div>
+    <div><h3>Objek kajian</h3><p>Al-Qur’an sebagai teks wahyu: sejarahnya, bentuk tulisannya, bacaannya, hukum-hukumnya, dan gaya bahasanya.</p></div>
+    <div><h3>Manfaat bagi pelajar</h3><p>Dasar untuk belajar tafsir, fikih, ushul fikih, dan ilmu bahasa Arab dengan landasan yang kokoh.</p></div>
+  </div>
+</div></section>
+
+<section id="struktur"><div class="wrap">
+  <h2>Struktur Al-Qur’an</h2>
+  <p class="lead">Angka berikut mengikuti penghitungan yang paling umum dipakai (mushaf standar). Sebagian ulama menghitung ayat dengan cara berbeda, sehingga jumlah ayat bisa sedikit berbeda antar riwayat.</p>
+  <dl class="def">
+    <div><dt>Juz</dt><dd>30</dd></div>
+    <div><dt>Surah</dt><dd>114</dd></div>
+    <div><dt>Ayat</dt><dd>6.236</dd></div>
+    <div><dt>Surah Makkiyah / Madaniyyah</dt><dd>86 / 28</dd></div>
+  </dl>
+  <div class="cols">
+    <div>
+      <h3>Unit-unit dalam mushaf</h3>
+      <ul>
+        <li><b>Ayat</b>: satuan terkecil, satu rangkaian kalimat wahyu.</li>
+        <li><b>Surah</b>: kumpulan ayat dengan nama dan batas tertentu.</li>
+        <li><b>Juz</b>: pembagian 30 bagian sama panjang, memudahkan khatam dalam sebulan.</li>
+        <li><b>Hizb dan rubu’</b>: pembagian lebih kecil dari juz untuk membaca dan menghafal.</li>
+        <li><b>Manzil</b>: tujuh bagian, untuk khatam dalam seminggu.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Makkiyah dan Madaniyyah</h3>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>Makkiyah</th><th>Madaniyyah</th></tr>
+        <tr><td>Waktu</td><td>Sebelum hijrah</td><td>Setelah hijrah</td></tr>
+        <tr><td>Tema utama</td><td>Tauhid, akhirat, akhlak</td><td>Hukum, muamalah, kehidupan sosial</td></tr>
+        <tr><td>Gaya ayat</td><td>Umumnya pendek dan tegas</td><td>Umumnya lebih panjang</td></tr>
+      </table></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="cabang"><div class="wrap">
+  <h2>Cabang-cabang Ulumul Qur’an</h2>
+  <p class="lead">Pilih salah satu kelompok untuk melihat isinya.</p>
+  <div class="tabs" role="tablist" aria-label="Kelompok cabang ilmu">
+    <button role="tab" aria-selected="true" aria-controls="p0" id="t0">Turunnya wahyu</button>
+    <button role="tab" aria-selected="false" aria-controls="p1" id="t1">Penulisan dan pembukuan</button>
+    <button role="tab" aria-selected="false" aria-controls="p2" id="t2">Bacaan</button>
+    <button role="tab" aria-selected="false" aria-controls="p3" id="t3">Penafsiran</button>
+    <button role="tab" aria-selected="false" aria-controls="p4" id="t4">Keistimewaan bahasa</button>
+  </div>
+  <div class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
+    <h3>Ilmu tentang turunnya wahyu</h3>
+    <ul>
+      <li><b>Nuzulul Qur’an</b>: proses turunnya wahyu, dari Lauh Mahfuz hingga diterima Nabi ﷺ secara bertahap selama sekitar 23 tahun.</li>
+      <li><b>Makki dan Madani</b>: pembedaan wahyu berdasarkan waktu dan tempat turunnya.</li>
+      <li><b>Asbabun Nuzul</b>: sebab atau peristiwa yang melatarbelakangi turunnya suatu ayat.</li>
+      <li><b>Awal dan akhir ayat yang turun</b>: urutan wahyu pertama dan terakhir.</li>
+    </ul>
+  </div>
+  <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+    <h3>Ilmu tentang penulisan dan pembukuan</h3>
+    <ul>
+      <li><b>Jam’ul Qur’an</b>: sejarah pengumpulan Al-Qur’an dari hafalan dan tulisan para sahabat.</li>
+      <li><b>Rasm Utsmani</b>: kaidah penulisan mushaf yang disepakati pada masa Khalifah Utsman.</li>
+      <li><b>Tartib ayat dan surah</b>: urutan ayat dan surah dalam mushaf.</li>
+      <li><b>Pemberian harakat dan titik</b>: penyempurnaan tulisan agar mudah dibaca oleh non-Arab.</li>
+    </ul>
+  </div>
+  <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <h3>Ilmu tentang bacaan</h3>
+    <ul>
+      <li><b>Qira’at</b>: ragam cara membaca Al-Qur’an yang sanadnya sampai kepada Nabi ﷺ.</li>
+      <li><b>Tajwid</b>: aturan melafalkan huruf dan hukum bacaan dengan benar.</li>
+      <li><b>Waqaf dan ibtida’</b>: tempat berhenti dan memulai bacaan agar makna tidak berubah.</li>
+    </ul>
+  </div>
+  <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <h3>Ilmu tentang penafsiran</h3>
+    <ul>
+      <li><b>Tafsir dan Ta’wil</b>: penjelasan makna ayat serta kaidah dan metodenya.</li>
+      <li><b>Muhkam dan Mutasyabih</b>: ayat yang maknanya jelas dan ayat yang memerlukan penelaahan lebih dalam.</li>
+      <li><b>’Am dan Khas, Mutlaq dan Muqayyad</b>: kaidah cakupan makna ayat.</li>
+      <li><b>Nasikh dan Mansukh</b>: hukum yang menggantikan atau digantikan.</li>
+      <li><b>Mubham</b>: kata atau tokoh yang tidak disebutkan secara jelas.</li>
+    </ul>
+  </div>
+  <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+    <h3>Ilmu tentang keistimewaan bahasa</h3>
+    <ul>
+      <li><b>I’jazul Qur’an</b>: kemukjizatan Al-Qur’an dari segi bahasa, isi, dan pengaruhnya.</li>
+      <li><b>Amtsal</b>: perumpamaan dalam Al-Qur’an.</li>
+      <li><b>Aqsam</b>: sumpah Allah dalam ayat-ayat tertentu.</li>
+      <li><b>Qashash</b>: kisah-kisah Al-Qur’an dan hikmahnya.</li>
+      <li><b>Gharibul Qur’an dan I’rab</b>: kosakata yang jarang dipakai dan analisis tata bahasanya.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="sejarah"><div class="wrap">
+  <h2>Perkembangan Ulumul Qur’an</h2>
+  <p class="lead">Ilmu ini tumbuh bertahap, dari praktik sahabat hingga menjadi disiplin yang tersusun rapi.</p>
+  <ol class="tl">
+    <li><b>Masa Nabi ﷺ</b><span>Wahyu dihafal dan ditulis oleh para sahabat. Penjelasan makna langsung dari Nabi.</span></li>
+    <li><b>Masa Abu Bakar</b><span>Al-Qur’an dikumpulkan dalam satu lembaran setelah banyak penghafal gugur dalam perang Yamamah.</span></li>
+    <li><b>Masa Utsman</b><span>Penyalinan dan penyeragaman mushaf untuk dikirim ke berbagai wilayah, guna menjaga kesatuan bacaan.</span></li>
+    <li><b>Abad 2–3 H</b><span>Para ulama mulai menulis kajian terpisah, misalnya tentang asbabun nuzul dan nasikh mansukh.</span></li>
+    <li><b>Abad 8–10 H</b><span>Karya-karya besar yang merangkum seluruh cabang ilmu ini disusun secara sistematis.</span></li>
+    <li><b>Era modern</b><span>Penulisan buku ajar dan kajian akademik, termasuk kajian kontekstual dan metodologi tafsir.</span></li>
+  </ol>
+</div></section>
+
+<section id="kitab"><div class="wrap">
+  <h2>Kitab rujukan utama</h2>
+  <div class="tablewrap"><table>
+    <tr><th>Kitab</th><th>Pengarang</th><th>Ciri</th></tr>
+    <tr><td>Al-Burhan fi ’Ulumil Qur’an</td><td>Az-Zarkasyi (w. 794 H)</td><td>Merangkum 47 jenis ilmu Al-Qur’an.</td></tr>
+    <tr><td>Al-Itqan fi ’Ulumil Qur’an</td><td>As-Suyuthi (w. 911 H)</td><td>Pembahasan sangat luas dan sistematis; rujukan klasik utama.</td></tr>
+    <tr><td>Manahilul ’Irfan fi ’Ulumil Qur’an</td><td>Az-Zarqani (w. 1367 H)</td><td>Penyajian modern dan mudah diikuti.</td></tr>
+    <tr><td>Mabahits fi ’Ulumil Qur’an</td><td>Manna’ Al-Qaththan</td><td>Ringkas, banyak dipakai di perkuliahan.</td></tr>
+  </table></div>
+</div></section>
+
+<section id="tanya"><div class="wrap">
+  <h2>Pertanyaan yang sering muncul</h2>
+  <details><summary>Apa bedanya Ulumul Qur’an dengan Tafsir?</summary><p>Ulumul Qur’an adalah ilmu-ilmu pendukung yang membahas Al-Qur’an dari banyak sisi. Tafsir adalah penjelasan makna ayat, dan ia termasuk salah satu bagian dari Ulumul Qur’an sekaligus memanfaatkan ilmu-ilmu lainnya.</p></details>
+  <details><summary>Mengapa asbabun nuzul penting?</summary><p>Mengetahui latar turunnya ayat membantu memahami maksud ayat dan menghindari salah tafsir. Namun tidak semua ayat memiliki sebab turun khusus.</p></details>
+  <details><summary>Dari mana sebaiknya mulai belajar?</summary><p>Mulailah dengan pengertian dan sejarah pengumpulan Al-Qur’an, lalu Makki-Madani, asbabun nuzul, dan qira’at. Belajarlah bersama guru atau dengan buku ajar yang terpercaya.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap"><p style="margin:0 0 8px;color:var(--ink)">Disusun oleh Halwa Samhana, Kelas B, NIM 21106252610049.</p>Halaman ini adalah ringkasan pengantar untuk belajar. Untuk pendalaman, rujuklah kitab-kitab di atas dan bimbingan guru yang kompeten.</div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function show(i){
+    tabs.forEach(function(t,j){
+      t.setAttribute('aria-selected',j===i?'true':'false');
+      t.tabIndex=j===i?0:-1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden=j!==i;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(i)});
+    t.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight')n=(i+1)%tabs.length;
+      if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
+      if(n!==null){show(n);tabs[n].focus();e.preventDefault();}
+    });
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>
